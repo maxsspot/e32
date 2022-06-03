@@ -29,7 +29,7 @@
             const send = document.getElementById ("send");
             var text = document.getElementById ("message").value;
 
-            send.addEventListener ("click", function() {
+            document.getElementById("send").addEventListener("click", function(){
                 set (red(db, "mess/", text.value), {
                     Message: text.value
                 })
