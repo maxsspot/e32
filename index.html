@@ -6,7 +6,8 @@
 	</head>
 	<body>
 				<script type="module">
-           import { getDatabase } from "./firebase/database";
+
+					import firebase from 'https://cdn.skypack.dev/@firebase/app'
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
   
             const firebaseConfig = {
@@ -19,16 +20,14 @@
                 appId: "1:544238123410:web:5cc4e39937b0ea3467294b"
             };
 
-            const app = initializeApp(firebaseConfig);
-            const database = getDatabase();
+            const app = initializeApp(firebaseConfig);				
+            var database = firebase.database();
 					
-					const element = document.getElementById("send");
-element.addEventListener("click", () => {
-    var text = document.getElementById ("message").value;
-  		firebase.database().ref('messages/' + userId).set({
-   			 Message: text
-  		});
-});
+					function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: "hrllo"
+  });
+}
         </script>
         <textarea id = "all_messages" readonly aria-readonly="true"></textarea>
         <nav>
