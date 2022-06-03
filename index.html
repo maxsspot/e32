@@ -26,19 +26,11 @@
 
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
-            var text = document.getElementById ("message").value;
-const element = document.getElementById("send");
-element.addEventListener("click", () => {
-   set (red(db, "mess/", text.value), {
-                    Message: text.value
-                })
-                .then (()=> {
-                    alert ("Success");
-                })
-                .catch ((error)=> {
-                    alert (error);
-                })
-});
+            function writeUserData(text) {
+  firebase.database().ref('messages/' + userId).set({
+    Message: text
+  });
+}
         </script>
         <script>
         document.addEventListener("keyup", function(event) {
