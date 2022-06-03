@@ -22,17 +22,21 @@
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
 					
-            function huh() {
-		var text = document.getElementById ("message").value;
+            function huhconfus() {
+		
+	    }
+					const element = document.getElementById("send");
+element.addEventListener("click", () => {
+    var text = document.getElementById ("message").value;
   		firebase.database().ref('messages/' + userId).set({
    			 Message: text
   		});
-	    }
+});
         </script>
         <textarea id = "all_messages" readonly aria-readonly="true"></textarea>
         <nav>
             <input placeholder = "Message here.." autocomplete="off" id = "message" />
-            <button id = "send" onclick = "huh()">Send</button>
+            <button id = "send">Send</button>
         </nav>
 
         <script>
