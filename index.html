@@ -8,7 +8,7 @@
         <textarea id = "all_messages" readonly aria-readonly="true"></textarea>
         <nav>
             <input placeholder = "Message here.." autocomplete="off" id = "message" />
-            <button id = "send">Send</button>
+            <button id = "send" onclick = "writeUserData()">Send</button>
         </nav>
 		<script type="module">
            import { getDatabase } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
@@ -26,7 +26,8 @@
 
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
-            function writeUserData(text) {
+            function writeUserData() {
+		    var text = document.getElementById ("message").value;
   firebase.database().ref('messages/' + userId).set({
     Message: text
   });
