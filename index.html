@@ -5,12 +5,7 @@
 		<title>Chat</title>
 	</head>
 	<body>
-        <textarea id = "all_messages" readonly aria-readonly="true"></textarea>
-        <nav>
-            <input placeholder = "Message here.." autocomplete="off" id = "message" />
-            <button id = "send" onclick = "huh()">Send</button>
-        </nav>
-		<script type="module">
+				<script type="module">
            import { getDatabase } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
   
@@ -33,6 +28,12 @@
   });
 }
         </script>
+        <textarea id = "all_messages" readonly aria-readonly="true"></textarea>
+        <nav>
+            <input placeholder = "Message here.." autocomplete="off" id = "message" />
+            <button id = "send" onclick = "huh()">Send</button>
+        </nav>
+
         <script>
         document.addEventListener("keyup", function(event) {
     var text = document.getElementById ("message").value;
