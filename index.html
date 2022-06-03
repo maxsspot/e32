@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+		<title>Chat</title>
+	</head>
+	<body>
+        <textarea id = "all_messages" readonly aria-readonly="true"></textarea>
+        <nav>
+            <input placeholder = "Message here.." autocomplete="off" id = "message" />
+            <button id = "send">Send</button>
+        </nav>
+		<script type="module">
+           import { getDatabase } from "/firebase/database";
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+  
+            const firebaseConfig = {
+                apiKey: "AIzaSyAt-19q7QBpCSyMPSOAD3BaVmx9mxyEwec",
+                authDomain: "chat-2b521.firebaseapp.com",
+                databaseURL: "https://chat-2b521-default-rtdb.firebaseio.com",
+                projectId: "chat-2b521",
+                storageBucket: "chat-2b521.appspot.com",
+                messagingSenderId: "544238123410",
+                appId: "1:544238123410:web:5cc4e39937b0ea3467294b"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const database = getDatabase(app);
+            const send = document.getElementById ("send");
+            var text = document.getElementById ("message").value;
+
+            send.addEventListener ("click", function() {
+                set (red(db, "mess/", text.value), {
+                    Message: text.value
+                })
+                .then (()=> {
+                    console.log ("Success");
+                })
+                .catch ((error)=> {
+                    console.log (error);
+                })
+            });
+        </script>
+        <script>
+        document.addEventListener("keyup", function(event) {
+    var text = document.getElementById ("message").value;
+    var ree = document.getElementById ("all_messages").value;
+    if (event.key === 'Enter') {
+        document.getElementById ("all_messages").value += text + "\n\n"; 
+        document.getElementById ("message").value = null;
+    }
+});
+        </script>
+        <style>
+          * {
+    margin:0;
+    padding:0;
+}
+
+body {
+	background-color:whitesmoke;
+    text-align:center;
+    font-family:"Montserrat", sans-serif;
+}
+
+#all_messages {
+    width:95%;
+    margin-left:10px;
+    background-color:transparent;
+    border:transparent;
+    resize:none;
+    height:300px;
+    margin-top:10px;
+}
+
+nav {
+    width:100%;
+    height:60px;
+    background-color:white;
+    position:fixed;
+    bottom:0;
+}
+
+button, input, textarea {
+    font-family:"Montserrat", sans-serif;
+    outline:none;
+    transition:all 1s;
+}
+
+input {
+    height:45px;
+    margin-top:7.5px;
+    background-color:lightgray;
+    width:200px;
+    border:transparent;
+    border-radius:5px;
+    text-indent:10px;
+}
+
+input::placeholder {
+    color: black;
+}
+        </style>
+	</body>
+</html>
