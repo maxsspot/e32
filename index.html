@@ -2,12 +2,13 @@
 <html>
 	<head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<title>Chat</title>
 	</head>
 	<body>
 			<video id="localVideo" autoplay/>
 		<nav>
-			
+			<button style = "float:left;"><i class="fa-solid fa-video"></i></button>
 		</nav>
 		<script>
       var video = document.querySelector("#localVideo");
@@ -77,6 +78,13 @@ input {
 input::placeholder {
     color: black;
 }
+		
+		button {
+			height:60px;
+			width:60px;
+			background-color:transparent;
+			border:transparent;
+		}
         </style>
 	</body>
 </html>
