@@ -27,22 +27,25 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 	
 }
-			const gdmOptions = {
-  video: {
-    cursor: "always"
-  },
-  audio: {
-    echoCancellation: true,
-    noiseSuppression: true,
-  }
+			let captureVideo = async function() {
+    try {
+        let getScreenData = await navigator.mediaDevices.getDisplayMedia({
+            video: true,
+            audio: true
+        });
+        videoElement.srcObject = getScreenData;
+    } catch (e) {
+        console.log(e);
+    }
+
 }
-			function sharesss(displayMediaOptions) {
+			/*function sharesss(displayMediaOptions) {
  return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
     .catch(err => { console.error("Error:" + err); return null; });
 }function startCapture(displayMediaOptions) {
  return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
     .catch(err => { console.error("Error:" + err); return null; });
-}
+}*/
 			
 			async function startCapture(displayMediaOptions) {
   let captureStream = null;
