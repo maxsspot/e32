@@ -12,6 +12,7 @@
 			<video id="localVideo" autoplay/>
 		
 		<script>
+			var localstream;
       var video = document.querySelector("#localVideo");
 
 if (navigator.mediaDevices.getUserMedia) {
@@ -27,6 +28,7 @@ if (navigator.mediaDevices.getUserMedia) {
 			function paused () {
 				video.pause();
 				video.srcObject = "";
+				localstream.getTracks()[0].stop();
 			}
     </script>
         <style>
