@@ -27,7 +27,15 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 	
 }
-			
+			const gdmOptions = {
+  video: {
+    cursor: "always"
+  },
+  audio: {
+    echoCancellation: true,
+    noiseSuppression: true,
+  }
+}
 			function sharesss(displayMediaOptions) {
  return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
     .catch(err => { console.error("Error:" + err); return null; });
