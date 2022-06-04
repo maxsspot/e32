@@ -28,7 +28,7 @@ if (navigator.mediaDevices.getUserMedia) {
 			function paused () {
 				video.pause();
 				video.srcObject = "";
-				localstream.getTracks()[0].stop();
+				localMediaStream.stop()
 			}
     </script>
         <style>
