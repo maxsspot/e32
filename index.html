@@ -7,17 +7,17 @@
 	<body>
 			<video id="localVideo" autoplay/>
 		<script>
-      window.addEventListener("load", function (evt) {
-        navigator.getUserMedia({ audio: true, video: true},
-          function(stream) {
-            var video = document.getElementById('localVideo');
-            video.src = window.URL.createObjectURL(stream);
-          },
-          function(err) {
-            console.log("The following error occurred: " + err.name);
-          }
-        );
-      });
+      var video = document.querySelector("#localVideo);
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
     </script>
         <style>
           * {
