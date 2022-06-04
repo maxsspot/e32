@@ -24,6 +24,12 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
+	function unpaused () {
+				video.play();
+				video.srcObject = stream;
+				document.getElementById ("p").style.display = "block";
+				document.getElementById ("unp").style.display = "none";
+			}
 }
 			
 			function paused () {
@@ -33,12 +39,7 @@ if (navigator.mediaDevices.getUserMedia) {
 				document.getElementById ("unp").style.display = "block";
 			}
 			
-			function unpaused () {
-				video.play();
-				video.srcObject = stream;
-				document.getElementById ("p").style.display = "block";
-				document.getElementById ("unp").style.display = "none";
-			}
+			
     </script>
         <style>
           * {
