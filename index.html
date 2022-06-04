@@ -28,18 +28,7 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 	
 }
-			let captureVideo = async function() {
-    try {
-        let getScreenData = await navigator.mediaDevices.getDisplayMedia({
-            video: true,
-            audio: true
-        });
-        videoElement.srcObject = getScreenData;
-    } catch (e) {
-        console.log(e);
-    }
-
-}
+			
 			/*function sharesss(displayMediaOptions) {
  return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
     .catch(err => { console.error("Error:" + err); return null; });
@@ -47,6 +36,17 @@ if (navigator.mediaDevices.getUserMedia) {
  return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
     .catch(err => { console.error("Error:" + err); return null; });
 }*/
+			
+			async function sharesss(displayMediaOptions) {
+  let captureStream = null;
+
+  try {
+    captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+  } catch(err) {
+    console.error("Error: " + err);
+  }
+  return captureStream;
+}
 			
 			async function startCapture(displayMediaOptions) {
   let captureStream = null;
