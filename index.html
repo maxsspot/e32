@@ -9,7 +9,7 @@
 		<nav>
 			<button style = "float:left;" id = "p" onclick = "paused()"><i class="fas fa-video fa-lg"></i></button>
 			<button style = "float:left;" id = "unp" onclick = "unpaused()"><i class="fas fa-video-slash fa-lg"></i></button>
-
+<button id = "shre" onclick = "sharesss()"><i class="fas fa-upload fa-lg"></i></button>
 		</nav>
 			<video id="localVideo" autoplay/>
 		
@@ -28,15 +28,12 @@ if (navigator.mediaDevices.getUserMedia) {
 	
 }
 			
-			async function startCapture(displayMediaOptions) {
-  let captureStream = null;
-
-  try {
-    captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-  } catch(err) {
-    console.error("Error: " + err);
-  }
-  return captureStream;
+			function sharesss(displayMediaOptions) {
+ return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
+    .catch(err => { console.error("Error:" + err); return null; });
+}function startCapture(displayMediaOptions) {
+ return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
+    .catch(err => { console.error("Error:" + err); return null; });
 }
 			
 			function unpaused () {
