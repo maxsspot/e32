@@ -35,7 +35,7 @@ if (navigator.mediaDevices.getUserMedia) {
 }
 			
 			async function sharesss(displayMediaOptions) {
-  let captureStream = null;
+  let captureStream = document.querySelector("#my-video-stream");
 
   try {
     captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
