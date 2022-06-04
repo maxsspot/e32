@@ -29,23 +29,9 @@ if (navigator.mediaDevices.getUserMedia) {
 	
 }
 			
-			/*function sharesss(displayMediaOptions) {
- return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
-    .catch(err => { console.error("Error:" + err); return null; });
-}function startCapture(displayMediaOptions) {
- return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
-    .catch(err => { console.error("Error:" + err); return null; });
-}*/
-			
 			const gdmOptions = {
-  video: {
-    cursor: "always"
-  },
-  audio: {
-    echoCancellation: true,
-    noiseSuppression: true,
-    sampleRate: 44100
-  }
+  video: true,
+  audio: true
 }
 			
 			async function sharesss(displayMediaOptions) {
