@@ -27,14 +27,14 @@ if (navigator.mediaDevices.getUserMedia) {
 	
 }
 			
-			function unpaused (stream) {
-				video.srcObject = stream;
+			function unpaused () {
+				video.Play();
 				document.getElementById ("p").style.display = "block";
 				document.getElementById ("unp").style.display = "none";
 			}
 			
 			function paused () {
-				video.srcObject = null;
+				video.Pause();
 				document.getElementById ("p").style.display = "none";
 				document.getElementById ("unp").style.display = "block";
 			}
