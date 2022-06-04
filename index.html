@@ -37,6 +37,17 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(err => { console.error("Error:" + err); return null; });
 }*/
 			
+			const gdmOptions = {
+  video: {
+    cursor: "always"
+  },
+  audio: {
+    echoCancellation: true,
+    noiseSuppression: true,
+    sampleRate: 44100
+  }
+}
+			
 			async function sharesss(displayMediaOptions) {
   let captureStream = null;
 
